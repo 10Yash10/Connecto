@@ -2,11 +2,13 @@ import { View, StyleSheet, Image, Text } from "react-native";
 import Colors from "../../../../constants/Colors";
 import { TouchableOpacity } from "react-native";
 
+const goToChat = (item) =>{
+  console.warn(`clicked on : ${item.name}`)
+}
+
 export const MessageBox = ({ item }) => {
-  console.log(item);
   return (
-    <TouchableOpacity style={{flex:1,margin:5}}>
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={()=>goToChat(item)}>
         <View style={styles.profilePhoto}>
           <Image
             style={{ width: "80%", height: "100%", borderRadius: 50 }}
@@ -39,8 +41,7 @@ export const MessageBox = ({ item }) => {
             {item.time}
           </Text>
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
   );
 };
 
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#000",
     paddingVertical:5,
+    marginBottom:5
   },
   profilePhoto: {
     flex: 1,
